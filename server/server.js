@@ -5,8 +5,11 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = 5001;
-
+const PORT = process.env.PORT || 5003;
+const corsOptions = {
+  origin: 'https://satta-dun.vercel.app', // Allow requests from this origin
+};
+app.use(cors(corsOptions));
 app.use(cors());
 app.use(bodyParser.json());
 
